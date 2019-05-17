@@ -1,5 +1,6 @@
 package com.example.quizzical;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -103,6 +104,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.appCompatButtonRegister:
                 postDataToSQLite();
+                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(intent);
                 break;
 
             case R.id.appCompatTextViewLoginLink:

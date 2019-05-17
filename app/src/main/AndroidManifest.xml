@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".UserHomeActivity" />
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".AddQuestionActivity" />
         <activity android:name=".QuizActivity" />
         <activity android:name=".QuestionListActivity" />
