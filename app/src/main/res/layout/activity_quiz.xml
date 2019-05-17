@@ -38,18 +38,8 @@
         android:padding="16dp"
         android:text="Question 1/x"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_below="@+id/header"/>
-
-    <TextView
-        android:id="@+id/text_view_timer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_below="@+id/header"
-        android:layout_alignParentEnd="true"
-        android:padding="16dp"
-        android:text="00:00"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="25sp" />
+        android:freezesText="true"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,7 +55,8 @@
             android:text="Question text here\nQuestion text here\nQuestion text here\n"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:freezesText="true"/>
 
         <RadioGroup
             android:id="@+id/radio_group"
@@ -77,25 +68,33 @@
                 android:id="@+id/radio_button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="#FFEB3B"
+                android:freezesText="true"
                 android:text="Option 1" />
 
             <RadioButton
                 android:id="@+id/radio_button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Option 2" />
+                android:text="Option 2"
+                android:buttonTint="#FFEB3B"
+                android:freezesText="true"/>
 
             <RadioButton
                 android:id="@+id/radio_button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Option 3" />
+                android:text="Option 3"
+                android:buttonTint="#FFEB3B"
+                android:freezesText="true"/>
 
             <RadioButton
                 android:id="@+id/radio_button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Option 4" />
+                android:text="Option 4"
+                android:buttonTint="#FFEB3B"
+                android:freezesText="true"/>
 
         </RadioGroup>
 
@@ -104,7 +103,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Next" />
+            android:text="Next"
+            android:freezesText="true"/>
 
     </LinearLayout>
 

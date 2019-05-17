@@ -13,14 +13,19 @@ import android.widget.Toast;
 import com.example.quizzical.Model.Question;
 import com.example.quizzical.SQL.DatabaseHelper2;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
 
+    private static final String KEY_SCORE = "keyScore";
+    private static final String KEY_QUESTION_COUNT = "keyQuestionCount";
+    private static final String KEY_ANSWERED = "keyAnswered";
+    private static final String KEY_QUESTION_LIST = "keyQuestionList";
+
     private TextView textViewQuestion;
     private TextView textViewQuestionCount;
-    private TextView textViewTimer;
     private RadioGroup rbGroup;
     private RadioButton rb1;
     private RadioButton rb2;
@@ -28,7 +33,7 @@ public class QuizActivity extends AppCompatActivity {
     private RadioButton rb4;
     private Button buttonNext;
 
-    private List<Question> questionList;
+    private ArrayList<Question> questionList;
     private int questionCounter;
     private int questionCountTotal;
     private Question currentQuestion;
@@ -45,7 +50,6 @@ public class QuizActivity extends AppCompatActivity {
 
         textViewQuestion = findViewById(R.id.text_view_question);
         textViewQuestionCount = findViewById(R.id.text_view_question_count);
-        textViewTimer = findViewById(R.id.text_view_timer);
         rbGroup = findViewById(R.id.radio_group);
         rb1 = findViewById(R.id.radio_button1);
         rb2 = findViewById(R.id.radio_button2);
@@ -53,12 +57,25 @@ public class QuizActivity extends AppCompatActivity {
         rb4 = findViewById(R.id.radio_button4);
         buttonNext = findViewById(R.id.button_next);
 
-        DatabaseHelper2 databaseHelper2 = new DatabaseHelper2(this);
-        questionList = databaseHelper2.getAllQuestion();
-        questionCountTotal = questionList.size();
-        Collections.shuffle(questionList);
+        if (savedInstanceState == null) {
+            DatabaseHelper2 databaseHelper2 = new DatabaseHelper2(this);
+            questionList = databaseHelper2.getAllQuestion();
+            questionCountTotal = questionList.size();
+            Collections.shuffle(questionList);
 
-        showNextQuestion();
+            showNextQuestion();
+        } else {
+            questionList = savedInstanceState.getParcelableArrayList(KEY_QUESTION_LIST);
+            if (questionList == null) {
+                showScore();
+            }
+            questionCountTotal = questionList.size();
+            questionCounter = savedInstanceState.getInt(KEY_QUESTION_COUNT);
+            currentQuestion = questionList.get(questionCounter - 1);
+            score = savedInstanceState.getInt(KEY_SCORE);
+            answered = savedInstanceState.getBoolean(KEY_ANSWERED);
+        }
+
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +86,11 @@ public class QuizActivity extends AppCompatActivity {
                         Toast.makeText(QuizActivity.this, "Please select an answer", Toast.LENGTH_SHORT).show();
                     }
                 } else {
+                    if (questionCounter < questionCountTotal) {
+                        buttonNext.setText("Next");
+                    } else {
+                        buttonNext.setText("Finish");
+                    }
                     showNextQuestion();
                 }
             }
@@ -88,12 +110,6 @@ public class QuizActivity extends AppCompatActivity {
                questionCounter++;
                textViewQuestionCount.setText("Question: " + questionCounter + "/" + questionCountTotal);
                answered = false;
-
-               if (questionCounter < questionCountTotal) {
-                   buttonNext.setText("Next");
-               } else {
-                   buttonNext.setText("Finish");
-               }
 
            } else {
                showScore();
@@ -123,6 +139,15 @@ public class QuizActivity extends AppCompatActivity {
 
     private void finishQuiz() {
         finish();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(KEY_SCORE, score);
+        outState.putInt(KEY_QUESTION_COUNT, questionCounter);
+        outState.putBoolean(KEY_ANSWERED, answered);
+        outState.putParcelableArrayList(KEY_QUESTION_LIST, questionList);
     }
 
 }

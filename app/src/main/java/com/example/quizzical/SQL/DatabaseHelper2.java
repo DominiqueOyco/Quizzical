@@ -91,7 +91,7 @@ public class DatabaseHelper2 extends SQLiteOpenHelper {
      *
      * @return list
      */
-    public List<Question> getAllQuestion() {
+    public ArrayList<Question> getAllQuestion() {
         // array of columns to fetch
         String[] columns = {
                 COLUMN_QUESTION_ID,
@@ -105,7 +105,7 @@ public class DatabaseHelper2 extends SQLiteOpenHelper {
         // sorting orders
         String sortOrder =
                 COLUMN_QUESTION_ID + " ASC";
-        List<Question> questionList = new ArrayList<Question>();
+        ArrayList<Question> questionList = new ArrayList<Question>();
 
         SQLiteDatabase db = this.getReadableDatabase();
 

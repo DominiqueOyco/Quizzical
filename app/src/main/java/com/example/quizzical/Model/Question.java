@@ -1,6 +1,9 @@
 package com.example.quizzical.Model;
 
-public class Question {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Question implements Parcelable {
 
     private int id;
     private String question;
@@ -22,6 +25,44 @@ public class Question {
         this.answer4 = answer4;
         this.correct = correct;
     }
+
+    protected Question(Parcel in) {
+        id = in.readInt();
+        question = in.readString();
+        answer1 = in.readString();
+        answer2 = in.readString();
+        answer3 = in.readString();
+        answer4 = in.readString();
+        correct = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(question);
+        dest.writeString(answer1);
+        dest.writeString(answer2);
+        dest.writeString(answer3);
+        dest.writeString(answer4);
+        dest.writeString(correct);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Question> CREATOR = new Creator<Question>() {
+        @Override
+        public Question createFromParcel(Parcel in) {
+            return new Question(in);
+        }
+
+        @Override
+        public Question[] newArray(int size) {
+            return new Question[size];
+        }
+    };
 
     public int getId() {
         return id;
