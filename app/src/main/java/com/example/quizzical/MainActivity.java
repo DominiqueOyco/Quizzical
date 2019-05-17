@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 emptyInputEditText();
                 startActivity(adminIntent);
             } else {
-                Intent userIntent = new Intent(activity, UserHomeActivity.class);
+                Intent userIntent = new Intent(activity, NavDrawerActivity.class);
                 emptyInputEditText();
                 startActivity(userIntent);
             }
