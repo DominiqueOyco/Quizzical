@@ -9,10 +9,8 @@ import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
-import android.util.Log;
 import android.view.View;
 
-import com.example.quizzical.R;
 import com.example.quizzical.Helpers.InputValidation;
 import com.example.quizzical.SQL.DatabaseHelper;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -122,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 emptyInputEditText();
                 startActivity(adminIntent);
             } else {
-                Intent userIntent = new Intent(activity, NavDrawerActivity.class);
+                Intent userIntent = new Intent(activity, UserHomeNavDrawerActivity.class);
                 emptyInputEditText();
                 startActivity(userIntent);
             }
