@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/holo_purple"
+    tools:context=".AboutFragment">
+
+    <TextView
+        android:id="@+id/about_textView"
+        android:layout_width="412dp"
+        android:layout_height="516dp"
+        android:gravity="center"
+        android:text="\n\nABOUT US\n\n\n\nCECS 453 - FINAL PROJECT\nTeam Members:\n
+    Mancia Pham - Group Manager + Quiz System\n
+    Nisal Easara Dematahare Gamage - Database\n
+    Dominique Oyco - Project Requirements\n
+    Matthew Szeto - User Experience"
+        android:textColor="#fff" />
+
+</LinearLayout>
