@@ -49,7 +49,7 @@ public class AccountActivity extends AppCompatActivity{
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AccountActivity.this, UserHomeNavDrawerActivity.class);
+                Intent intent = new Intent(AccountActivity.this, UserHomeActivity.class);
                 startActivity(intent);
             }
         });

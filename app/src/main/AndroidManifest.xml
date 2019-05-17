@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".HelpActivity"></activity>
         <activity
-            android:name=".UserHomeNavDrawerActivity"
+            android:name=".UserHomeActivity"
             android:label="@string/title_activity_nav_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SplashScreenActivity">
@@ -21,7 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserHomeActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".AddQuestionActivity" />
         <activity android:name=".QuizActivity" />
