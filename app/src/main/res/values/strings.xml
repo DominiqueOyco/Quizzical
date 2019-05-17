@@ -46,4 +46,10 @@
     <string name="menu_about">About</string>
     <string name="menu_logout">Logout</string>
     <string name="menu_help">Help</string>
+
+    <string name="text_help">
+        To play the game, go back to the home screen
+        and press Start Quiz. If you have any troubles
+        please contact one of the creators of this app.
+    </string>
 </resources>
