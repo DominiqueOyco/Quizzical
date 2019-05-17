@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         "WELCOME ADMIN!", Toast.LENGTH_SHORT).show();
 
             } else {
-                Intent userIntent = new Intent(activity, UserHomeNavDrawerActivity.class);
+                Intent userIntent = new Intent(activity, UserHomeActivity.class);
                 emptyInputEditText();
                 userIntent.putExtra ( "Username", textInputEditTextEmail.getText().toString()); //pass the data from the username editText to another activity
                 userIntent.putExtra ( "Password", textInputEditTextPassword.getText().toString()); //pass the data from the password editText to another activity
