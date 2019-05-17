@@ -13,9 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class UserHomeNavDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    String newUser;
+    String newPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,9 @@ public class UserHomeNavDrawerActivity extends AppCompatActivity
                 startQuiz();
             }
         });
+
+        newUser = getIntent().getStringExtra("Username"); //accepts the username data from mainactivity
+        newPass = getIntent().getStringExtra("Password"); //accepts the password data from mainactivity
     }
 
     private void startQuiz() {
@@ -78,13 +85,24 @@ public class UserHomeNavDrawerActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        //directs user to the account page
         if (id == R.id.nav_account){
+            Intent intent = new Intent(UserHomeNavDrawerActivity.this, AccountActivity.class);
+            intent.putExtra ( "New Username", newUser); //pass the accepted username data from mainactivity to the account page
+            intent.putExtra ( "New Password", newPass); //pass the accepted password data from mainactivity to the account page
+            startActivity(intent);
 
             //directs the user to the about page
         } else if (id == R.id.nav_about) {
+            Intent intent = new Intent(UserHomeNavDrawerActivity.this, AboutActivity.class);
+            startActivity(intent);
 
+            //once clicked, the user is signed out and gets directed to the login page
         } else if (id == R.id.nav_logout) {
-
+            Intent intent = new Intent(UserHomeNavDrawerActivity.this, MainActivity.class);
+            startActivity(intent);
+            Toast.makeText(UserHomeNavDrawerActivity.this,
+                    "LOGOUT SUCCESSFUL! SEE YA AGAIN!", Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
