@@ -15,6 +15,11 @@ import android.view.Menu;
 import android.widget.Button;
 import android.widget.Toast;
 
+/**
+ * User Home Activity with Nav Drawer (sliding settings screen), this is where the Quiz
+ * takes place and where you get your score.
+ */
+
 public class UserHomeNavDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
