@@ -16,6 +16,8 @@ import com.example.quizzical.Helpers.InputValidation;
 import com.example.quizzical.SQL.DatabaseHelper;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    public static String currentUser;
+
     private final AppCompatActivity activity = MainActivity.this;
 
     private NestedScrollView nestedScrollView;
@@ -115,8 +117,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim()
                 , textInputEditTextPassword.getText().toString().trim())) {
+            currentUser = textInputEditTextEmail.getText().toString().trim();
 
-            if (textInputEditTextEmail.getText().toString().trim().matches("admin@quiz.com")) {
+            if (currentUser.matches("admin@quiz.com")) {
                 Intent adminIntent = new Intent(activity, QuestionListActivity.class);
                 emptyInputEditText();
                 startActivity(adminIntent);

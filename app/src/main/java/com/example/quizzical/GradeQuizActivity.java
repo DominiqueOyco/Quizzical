@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.example.quizzical.Model.Question;
 import com.example.quizzical.SQL.DatabaseHelper2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,7 +19,7 @@ public class GradeQuizActivity extends AppCompatActivity {
     private int questionCountTotal;
 
     private TextView textViewGrade;
-    private List<Question> questionList;
+    private ArrayList<Question> questionList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
