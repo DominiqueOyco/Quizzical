@@ -97,6 +97,11 @@ public class UserHomeNavDrawerActivity extends AppCompatActivity
             Intent intent = new Intent(UserHomeNavDrawerActivity.this, AboutActivity.class);
             startActivity(intent);
 
+            //directs the user to the about page
+        } else if (id == R.id.nav_help) {
+            Intent intent = new Intent(UserHomeNavDrawerActivity.this, HelpActivity.class);
+            startActivity(intent);
+
             //once clicked, the user is signed out and gets directed to the login page
         } else if (id == R.id.nav_logout) {
             Intent intent = new Intent(UserHomeNavDrawerActivity.this, MainActivity.class);
