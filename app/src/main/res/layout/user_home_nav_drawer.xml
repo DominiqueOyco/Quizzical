@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="User Home"
-            android:background="?attr/colorPrimary" />
+            android:background="?attr/colorPrimaryDark" />
 
     </android.support.design.widget.AppBarLayout>
 
