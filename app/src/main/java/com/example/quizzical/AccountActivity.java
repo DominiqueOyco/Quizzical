@@ -78,7 +78,6 @@ public class AccountActivity extends AppCompatActivity{
                 thisUser.setEmail(users.get(i).getEmail());
                 thisUser.setPassword(users.get(i).getPassword());
                 thisUser.setName(users.get(i).getName());
-
             }
         }
         return thisUser;
