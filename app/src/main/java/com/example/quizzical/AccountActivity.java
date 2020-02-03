@@ -48,7 +48,7 @@ public class AccountActivity extends AppCompatActivity{
         passValue = thisUser.getPassword();
 
         //set the textviews from the xml file to the passed data
-        username.setText("USERNAME: " + userValue);
+        username.setText("EMAIL: " + userValue);
         password.setText("PASSWORD: " + passValue);
 
         //once clicked, user gets directed to the signup page to create a new account

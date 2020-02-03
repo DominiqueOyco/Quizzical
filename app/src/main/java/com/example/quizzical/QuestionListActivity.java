@@ -39,6 +39,13 @@ public class QuestionListActivity extends AppCompatActivity {
         initObjects();
     }
 
+    @Override
+    public void onRestart(){
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+    }
+
     /**
      * This method is to initialize views
      */
